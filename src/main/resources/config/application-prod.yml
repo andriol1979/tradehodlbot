@@ -1,0 +1,26 @@
+logging:
+  level:
+    root: INFO
+    org.springframework.web: WARN
+    org.springframework.boot: WARN
+  config: classpath:config/logback-prod.xml
+
+spring:
+  jpa:
+    show-sql: false
+
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/tradehodlbot?autoreconnect=true
+    username: root
+    password:
+
+flyway:
+  url: jdbc:mysql://127.0.0.1:3306/mysql
+  schemas: tradehodlbot
+  user: root
+  password:
+
+application:
+  retry_count_max: ${RETRY_COUNT_MAX:5}
+  day_number_collect_retry: ${DAY_NUMBER_COLLECT_RETRY:3}
